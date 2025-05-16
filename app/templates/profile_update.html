@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Profile Update{% endblock title %}
+
+{% block content %}
+<div class="information">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <h1 class="text-center">Information</h1>
+                    <div class="col mb-4">
+                        <input type="file" accept="image/*"  name="picture" value="{{data.picture}}" placeholder="Add your picture">
+                    </div>
+                    <div class="col mb-3">
+                        <label class="fs-5">Name</label><br>
+                        <input type="text" name="name" value="{{data.name}}" class="w-100">
+                    </div>
+                    <div class="col mb-3">
+                        <label class="fs-5">Phone Number</label><br>
+                        <input type="text" name="phone" value="{{data.phone}}" class="w-100">
+                    </div>
+                     <div class="col mb-3">
+                        <label class="fs-5">Gender</label><br>
+                        <input type="text" name="gender" value="{{data.gender}} "class="w-100">
+                    </div>
+                     <div class="col mb-3">
+                        <label class="fs-5">Birth Date</label><br>
+                        <input type="text" name="birth_date" value="{{data.birth_date}} "class="w-100">
+                    </div>
+                    <div class="col mb-3">
+                        <label class="fs-5">City</label><br>
+                        <input type="text" name="city" value="{{data.city}}" class="w-100">
+                    </div>
+                    <div class="col mb-3">
+                        <label class="fs-5">State</label><br>
+                        <input type="text" name="state" value="{{data.state}} "class="w-100">
+                    </div>
+                    <div class="col mb-3">
+                        <label class="fs-5">Pincode</label><br>
+                        <input type="text" name="zip_code" value="{{data.zip_code}}" class="w-100">
+                    </div>
+                    <div class="col mb-3 text-center">
+                        <button type="submit" class="text-center py-2 px-5">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

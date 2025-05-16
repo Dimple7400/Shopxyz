@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Contact us{% endblock title %}
+
+{% block content %}
+<div class="contact my-5 py-4">
+    <div class="container">
+        <div class="topic">
+          <h1 class="text-warning text-center fw-bold" data-aos="fade-up">Contact Us</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="contact-form shadow p-5">
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

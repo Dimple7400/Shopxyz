@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Carts{% endblock title %}
+
+{% block content %}
+<div class="orders my-5">
+    <div class="container">
+        <div class="topic">
+           <h1 class="text-warning text-center fw-bold" data-aos="fade-up">My Orders</h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="my_orders">
+                    {% if orders %}
+                        <ul class="list-unstyled" data-aos="fade-up">
+                            {% for order in orders %}
+                                <li class="border p-5 my-4">
+                                    <img src="{{ order.product.image.url }}" alt="{{ order.product.product_name }}" width="100">
+                                    <h4>{{ order.product.product_name }}</h4>
+                                    <p>Price: ₹{{ order.product.discount_price }}</p>
+                                    <p>Quantity: {{ order.quantity }}</p>
+                                    <p>Status: {{ order.status }}</p>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>No orders yet!</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

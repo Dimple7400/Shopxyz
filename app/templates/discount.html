@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Discount{% endblock title %}
+
+{% block content %}
+<div class="discount my-5">
+    <div class="container">
+        <div class="topic d-flex justify-content-center">
+            <h1 class="text-warning text-center fw-bold">20% <h2 class="text-warning text-center fw-bold mx-2">oFF</h2></h1>
+        </div>
+        <div class="discount-product my-5">
+            <div class="row g-5">
+                {% for i in products %}
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <a href="{% url 'productdetails' i.id %}" class="text-decoration-none text-dark">
+                            <div class="category-card">
+                                <img src="/media/{{i.image}}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{i.product_name}}</h5>
+                                    <p class="py-0 my-0">{{i.brand}}</p>
+                                    <p class="py-0 my-0">free delivery</p>
+                                    <p class="py-0 my-0">{{i.selling_price}} <span>{{i.discount_price}}</span></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

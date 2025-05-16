@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<div class="category my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+             <div class="list-group">
+                {% for i in brand %}
+                     <a href="{% url 'categorybrand' i.brand %}" class="list-group-item list-group-item-action" aria-current="true">{{i.brand}}</a>
+                {% endfor %}
+             </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="row g-5">
+                    {% for i in product %}
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <a href="{% url 'productdetails' i.id %}" class="text-decoration-none text-dark">
+                            <div class="category-card" data-aos="flip-right">
+                                <img src="/media/{{i.image}}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                    <p class="py-0">Free delivery</p>
+                                    <h5 class="card-title">{{i.product_name}}</h5>
+                                    <p class="py-0 text-info">{{i.brand}}</p>
+                                    <h5>${{i.discount_price}} <small class="mx-2 text-decoration-line-through text-secondary">${{i.selling_price}}</small></h5>
+                                    </div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

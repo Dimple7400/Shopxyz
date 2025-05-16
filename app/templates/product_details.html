@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Product Details{% endblock title %}
+
+{% block content %}
+<div class="product-details my-5 py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="product-img text-center">
+                    <img src="/media/{{pro_details.image}}" alt=""  data-aos="fade-right">
+                </div>
+            </div>
+            <div class="col-lg-6 offset-lg-1">
+               <div class="product-info">
+                <h3 data-aos="fade-up">{{pro_details.product_name}}</h3>
+                <p class="text-success fw-bold text-info" data-aos="fade-up">{{pro_details.brand}}</p>
+                <h5 class="text-secondary text-decoration-line-through" data-aos="fade-up"><span class="fs-5 me-2">$</span>{{pro_details.selling_price}}</h5>
+                <p data-aos="fade-up">Free Delivery</p>
+                <p data-aos="fade-up">{{pro_details.discription}}</p>
+                <form action="{% url 'addtocart' pro_details.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-warning text-dark fw-bold" data-aos="fade-up">Add to Cart</button>
+                </form>
+               </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Product Details -->
+
+{% endblock content %}

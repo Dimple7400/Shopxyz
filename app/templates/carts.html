@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Carts{% endblock title %}
+
+{% block content %}
+<!-- Start-container -->
+ <div class="cart my-5">
+    <div class="container">
+        <div class="topic">
+            <h1 class="text-warning text-center fw-bold" data-aos="fade-up">Carts</h1>
+        </div>
+        {% if carts %}
+         {% for cart in carts %}
+             <div class="row border border-secondary border-2  p-4 rounded-3 my-4">
+            <a href="" class="text-decoration-none text-dark">
+                <div class="col-md-8 ">
+                    <div class="cart-item d-flex gap-3" data-aos="fade-up">
+                        <img src="/media/{{cart.product.image}}" alt="" class="cart-img img-fluid rounded" style="height: 15rem; width: 12rem; object-fit: cover;">
+                        <div class="cart-info my-3 mx-4">
+                            <h5>{{cart.product.product_name}}</h5>
+                            <p class="m-0 p-0">{{cart.product.discount_price}} <small class="text-decoration-line-through text-secondary mx-2">{{cart.product.selling_price}}</small></p>
+                            <small class="m-0 p-0">Free Delivery</small>
+                            <p>All issue easy returns</p>
+                            <a href="{% url 'addcartdelete' cart.id %}" class="text-decoration-none fs-5 text-secondary"><i class="fa-solid fa-x me-2"></i>Remove</a>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <div class="col-md-4">
+                <div class="quantity-controler d-flex justify-content-center align-item-center gap-4 my-5">
+                    <button class="btn-sm btn btn-secondary minus">-</button>
+                    <input type="number" min="1" value="1" class="form-control cart-input w-25 ">
+                    <button class="btn-sm btn btn-secondary plus">+</button>
+                    <a  href="{% url 'addcartdelete' cart.id %}" class="btn-sm btn btn-secondary minus" href=""><i class="fa-solid fa-square-xmark"></i></a>
+                </div>
+            </div>
+        </div>
+        {% endfor %} 
+        {% else %}
+        <div class="cart-no text-center">
+            <h1>You haven't added any favorite products</h1>
+        </div>
+        {% endif %}
+    </div>
+ </div>
+
+ <div class="summery">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="cart-summary text-dark p-5 m-5 bg-light rounded-4">
+                    <h4 class="text-center">Summary</h4>
+                    <p>Total items: <span class="text-success fw-bold">{{quantity}}</span></p>
+                    <p>Total price: <span class="text-success fw-bold">${{total}}</span></p>
+                    <a href="{% url 'checkout' %}" class="btn-success btn w-100" >Checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+<!-- End-container -->
+
+{% endblock content %}

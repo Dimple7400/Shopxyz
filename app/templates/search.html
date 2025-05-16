@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Search{% endblock title %}
+
+{% block content %}
+<section class="search my-5">
+    <div class="container">
+        <div class="row">
+            <div class="section-heading mb-5">
+                <h1>Showing Result of : {{q}}</h1>
+            </div>
+            {% for i in data %}
+                <div class="col-lg-3">
+                    <div class="card border-light my-3" data-aos="flip-right">
+                    <img src="/media/{{i.image}}" class="border-light" alt="..." style="height: 20rem;">
+                    <div class="card-body">
+                        <p>Free Delivery</p>
+                        <h6 class="card-title text-info">{{i.brand}}</h6>
+                        <h5>{{i.product_name | truncatechars:20}}</h5>
+                        <h5>${{i.discount_price}} <small class="mx-2 text-decoration-line-through text-secondary">{{i.selling_price}}</small></h5>
+                    </div>
+                    </div>
+                </div>
+           {% endfor %}
+        </div>
+    </div>
+
+</section>
+{% endblock content %}

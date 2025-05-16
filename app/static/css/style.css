@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Grand+Hotel&family=Grey+Qo&family=Imperial+Script&family=Lobster&family=Meow+Script&family=Playwrite+IN:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Grand+Hotel&family=Grey+Qo&family=Imperial+Script&family=Lobster&family=Meow+Script&family=Playwrite+IN:wght@100..400&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.topic h1{
+    font-family: "Imperial Script", cursive;
+    text-shadow: 8px 8px 10px skyblue;
+    font-size: 100px;
+    
+}
+@media (max-width: 915px){
+.topic h1{
+    font-family: "Imperial Script", cursive;
+    font-size: 50px;
+    
+}
+}
+/* Start-Navbar */
+navigation a{
+  font-size: 20px;
+  font-weight: 600;
+}
+navigation .container-fluid{
+  margin-left: 0px;
+  margin-right: 0px;
+}
+navigation .container-fluid{
+  margin-left: 15px;
+  margin-right: 15px;
+}
+@media (max-width: 915px){
+  .form-control {
+    width: 65%;
+  }
+  .nav-link {
+    padding: 7px;
+  }
+}
+/* End-Navbar */
+
+/* Start-Header */
+.header img{
+    height: 100vh;
+}
+.carousel-caption {
+    position: absolute;
+    left: 7%;
+    top: 8%;
+}
+.carousel-caption h1{
+    font-family: "Imperial Script", cursive;
+    text-shadow: 10px 10px 10px skyblue;
+    font-size: 150px;
+    font-weight: 700;
+    color: red;
+    text-align: center;
+    
+}
+@media (max-width: 915px){
+    .carousel-caption h1{
+        font-size: 50px;
+    }
+    .carousel-caption{
+        top: 20%;
+    }
+    .header img{
+        height: 35vh;
+    }
+}
+/* End-Header */
+
+/* Start-Category */
+.category-card a{
+    background-color: #ffc107;
+    font-weight: 700;
+    border: 1px solid #ffc107;
+    border-radius: 30px;
+}
+.category-card{
+    border: 5px solid whitesmoke;
+    box-shadow: 10px 10px 10px gray;
+}
+.category-card img{
+    height: 20rem;
+    border: 20px solid whitesmoke;
+}
+/* End-Category */
+
+/* Start-Latest-collection */
+.latest-collection h2{
+    font-family: "Imperial Script", cursive;
+    font-size: 80px;
+    font-weight: 500;
+}
+/* End-Latest-collection */
+
+/* Start-Shop */
+.shop-image{
+    position: relative;
+}
+.shop-image img{
+     height: 363px
+}
+.shop-text{
+    position: absolute;
+    top: 30%;
+    left: 4%;
+}
+.shop-text h1{
+    font-family: "Imperial Script", cursive;
+    font-size: 50px;
+    font-weight: 600;
+}
+@media (max-width: 915px){
+    .shop-image img{
+        height: 233px;
+    }
+    .shop-text{
+        top: 16%;
+        left: 3%;
+    }
+    .shop-text h1{
+       font-size: 40px;
+    }
+}
+/* End-Shop */
+
+/* Start-Features */
+.owl-carousel .owl-nav{
+    display: none;
+}
+.card{
+    border: 5px solid whitesmoke;
+    box-shadow: 10px 10px 10px gray;
+    position: relative;
+    
+}
+.card img{
+    height: 20rem;
+    border: 20px solid whitesmoke;
+    
+}
+.button{
+  position: absolute;
+  bottom: 38%;
+  left: 11%;
+  opacity: 0;
+ 
+}
+.card:hover .button{
+  opacity: 1;
+  transition: .5s ease;
+  transform: translate(0%, -30%);
+}
+
+.checkout_details{
+  border-left: 1px solid gray;
+  height: 17rem;
+}
+/* End-Features */
+
+/* Start-Footer */
+
+footer h5{
+    font-size: 25px;
+    font-weight: 700;
+}
+footer ul li a{
+  font-size: 18px;
+}
+.footer p{
+  text-align: justify;
+  font-size: 18px;
+  font-weight: 600;
+}
+/* End-Footer */
+
+/* Start-payment */
+.payment{
+  border: 1px solid gray;
+}
+.payment_details{
+  border-left: 1px solid gray;
+  height: 19rem;
+}
+.form-check-input[type=radio] {
+    border-radius: 50%;
+    border: 3px solid gray;
+}
+/* End-payment */
+
+/* Start-checkout */
+.add_info .d-flex {
+    display: flex ;
+    justify-content: space-around;
+}
+.add_info .display_info{
+  justify-content: space-between;
+  
+}
+.add_info .display_address{
+  border: 1px solid gray;
+}
+.checkout_details{
+  border-left: 1px solid gray;
+  height: 17rem;
+}
+/* End-checkout */
+
+/* Start-Wishlist */
+.wishlist-card{
+    border: 5px solid whitesmoke;
+    box-shadow: 10px 10px 10px gray;
+    position: relative;
+}
+.wishlist-delete{
+  position: absolute;
+  top: 30px;
+  right: 31px;
+}
+.wishlist-card img{
+    height: 20rem;
+    border: 20px solid whitesmoke;
+}
+/* End-Wishlist */

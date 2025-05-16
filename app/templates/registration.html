@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Registration{% endblock title %}
+
+{% block content %}
+<section class="registration my-5 py-5 ">
+    <div class="container">
+        <div class="row">
+            <div class="registration-heading text-center my-5">
+                <h1>Sign Up Now</h1>
+            </div>
+            <div class="form" style="width: 70%;">
+                <div class="col-lg-6 offset-6">
+                    <form method="post" class="shadow p-5">
+                        {% csrf_token %}
+                        {% for messages in messages %}
+                           <p class="alert alert-success">{{messages}}</p>
+                        {% endfor %}
+                        {% for fm in form %}
+                           <div class="form-group mb-3">
+                               <p>{{fm.label}}</p>
+                               {{fm}}
+                               <small class="text-danger">{{fm.errors | striptags}}</small>
+                           </div>
+                        {% endfor %}
+                         <input type="submit" value="Sign Up" class="btn btn-success">
+                         <div class="text-center text-primary fw-bold">
+                            <small>Exisiting User ? 
+                                <a href="{% url 'login' %}" class="text-danger">Login Now</a>
+                            </small>
+                         </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

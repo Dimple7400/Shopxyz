@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Wishlist{% endblock title %}
+
+{% block content %}
+<div class="category my-5">
+  <div class="container">
+    <div class="topic">
+      <h1 class="text-warning text-center fw-bold" data-aos="fade-up">Wishlist</h1>
+    </div>
+    <div class="category-item my-5">
+      <div class="row g-5">
+        {% if wishlist %}
+        {% for i in wishlist %}
+        <div class="col-lg-3 col-md-6 col-sm-12">
+          <div class="wishlist-card" data-aos="flip-right">
+            <img src="/media/{{i.product.image}}" class="card-img-top" alt="...">
+            <div class="wishlist-delete">
+              <a href="{% url 'delete_wishlist' i.id %}"><i class="fa-solid fa-xmark fa-2x text-secondary"></i></a>
+            </div>
+            <div class="card-body ">
+              <p class="py-0">Free Delivery</p>
+              <h5 class="card-title">{{i.product.product_name | truncatechars:20 }}</h5>
+              <h5>${{i.product.discount_price}} <small class="mx-2 text-decoration-line-through text-secondary">${{i.product.selling_price}}</small></h5>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="cart-no text-center">
+            <h1>You haven't added any favorite products</h1>
+        </div>
+        {% endif %}
+    </div>  
+    </div>
+  </div>
+</div>
+{% endblock content %}
