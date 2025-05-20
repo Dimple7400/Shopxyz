@@ -226,3 +226,23 @@ footer ul li a{
     border: 20px solid whitesmoke;
 }
 /* End-Wishlist */
+
+/* Start-registration */
+.sign_up {
+        width: 50%;
+        margin: 0px 26%;
+    }
+  @media (max-width: 915px) {
+    .sign_up {
+        width: 100%;
+        margin: 0px;
+    }
+}
+/* End-registration */
+
+/* Start-product_details */
+.product-details .product-img img{
+  width: 100%;
+  height: 40rem;
+}
+/* End-product_details */
