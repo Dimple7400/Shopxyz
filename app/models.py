@@ -126,7 +126,7 @@ class Wishlist(models.Model):
         return str(self.user)
 
 class Profile(models.Model):
-    user = models.ForeignKey(Customer, on_delete = models.CASCADE, null=True, blank=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE ,blank=True, null=True)
     picture = models.ImageField(upload_to="picture")
     name = models.CharField(max_length=100)
     phone = models.CharField(max_length=15, null=True, blank=True)
