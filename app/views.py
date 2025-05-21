@@ -48,17 +48,21 @@ class RegistrationView(View):
         if form.is_valid():
             messages.success(request, 'Congratulation! Registered Successfully')
             form.save()
-        return render(request, 'login.html', {'form' : form})
+            return redirect("login")
+        return render(request, 'registration.html', {'form' : form})
 
 def profile(request):
-    data =Profile.objects.all()
+    data = Profile.objects.filter(user=request.user)
     context = {
         'data' : data
     }
     return render(request, 'profile.html', context)
 
 def profile_info(request):
+    if Profile.objects.filter(user=request.user).exists():
+        return redirect('home')
     if request.method ==  'POST':
+        user = request.user
         name = request.POST.get('name')
         phone = request.POST.get('phone')
         gender = request.POST.get('gender')
@@ -66,7 +70,7 @@ def profile_info(request):
         city = request.POST.get('city')
         state = request.POST.get('state')
         zip_code = request.POST.get('zip_code')
-        record = Profile(name=name, phone=phone, gender=gender, birth_date=birth_date, city=city, state=state, zip_code=zipcode)
+        record = Profile(user=user, name=name, phone=phone, gender=gender, birth_date=birth_date, city=city, state=state, zip_code=zipcode)
         record.save()
         return redirect('home')
     data = Profile.objects.all()
@@ -77,6 +81,7 @@ def profile_info(request):
 
 def profile_update(request,id):
     if request.method ==  'POST':
+        user = request.user
         picture = request.FILES.get('picture')
         name = request.POST.get('name')
         phone = request.POST.get('phone')
@@ -85,7 +90,7 @@ def profile_update(request,id):
         city = request.POST.get('city')
         state = request.POST.get('state')
         zip_code = request.POST.get('zip_code')
-        record = Profile(id=id,picture=picture, name=name, phone=phone, gender=gender, birth_date=birth_date, city=city, state=state, zip_code=zip_code)
+        record = Profile(user=user, id=id,picture=picture, name=name, phone=phone, gender=gender, birth_date=birth_date, city=city, state=state, zip_code=zip_code)
         record.save()
         return redirect('profile')
     data = Profile.objects.get(pk=id)
