@@ -70,7 +70,7 @@ def profile_info(request):
         city = request.POST.get('city')
         state = request.POST.get('state')
         zip_code = request.POST.get('zip_code')
-        record = Profile(user=user, name=name, phone=phone, gender=gender, birth_date=birth_date, city=city, state=state, zip_code=zipcode)
+        record = Profile(user=user, name=name, phone=phone, gender=gender, birth_date=birth_date, city=city, state=state, zip_code=zip_code)
         record.save()
         return redirect('home')
         
