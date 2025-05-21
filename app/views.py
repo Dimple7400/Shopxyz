@@ -59,8 +59,6 @@ def profile(request):
     return render(request, 'profile.html', context)
 
 def profile_info(request):
-    if Profile.objects.filter(user=request.user).exists():
-        return redirect('home')
     if request.method ==  'POST':
         user = request.user
         name = request.POST.get('name')
@@ -72,6 +70,8 @@ def profile_info(request):
         zip_code = request.POST.get('zip_code')
         record = Profile(user=user, name=name, phone=phone, gender=gender, birth_date=birth_date, city=city, state=state, zip_code=zipcode)
         record.save()
+        return redirect('home')
+        if Profile.objects.filter(user=request.user).exists():
         return redirect('home')
     data = Profile.objects.all()
     context = {
