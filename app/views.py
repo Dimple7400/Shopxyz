@@ -138,7 +138,7 @@ def cart(request):
         messages.error(request, "Please log in to view your cart.")
         return redirect('/login/')
 
-    customer = Customer.objects.get(user=request.user)
+    customer, created = Customer.objects.get_or_create(user=request.user)
     carts = Cart.objects.filter(user=customer)
     total_price = 0  
     total_quantity=0
@@ -168,7 +168,7 @@ def add_wishlist(request,product_id):
     return redirect('wishlist')
 
 def wishlist(request):
-    customer = Customer.objects.get(user=request.user)
+    customer, created = Customer.objects.get_or_create(user=request.user)
     wishlist = Wishlist.objects.filter(user=customer)
     context = {
         'wishlist' : wishlist
